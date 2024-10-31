@@ -1,5 +1,6 @@
 # encoding:utf-8
 
+import re
 import time
 
 import openai
@@ -65,9 +66,12 @@ class OpenAIBot(Bot, OpenAIImage):
                     logger.debug(
                         "[OPEN_AI] new_query={}, session_id={}, reply_cont={}, completion_tokens={}".format(str(session), session_id, reply_content, completion_tokens)
                     )
-
+                    match = re.search(r"(?:!\[image\]|\[image\])\((.*?)\)", reply_content)
                     if total_tokens == 0:
                         reply = Reply(ReplyType.ERROR, reply_content)
+                    elif match:
+                        reply_content = match.group(1)
+                        reply = Reply(ReplyType.IMAGE_URL, reply_content)
                     else:
                         self.sessions.session_reply(reply_content, session_id, total_tokens)
                         reply = Reply(ReplyType.TEXT, reply_content)

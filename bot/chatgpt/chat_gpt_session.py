@@ -56,7 +56,7 @@ class ChatGPTSession(Session):
 # refer to https://github.com/openai/openai-cookbook/blob/main/examples/How_to_count_tokens_with_tiktoken.ipynb
 def num_tokens_from_messages(messages, model):
     """Returns the number of tokens used by a list of messages."""
-
+    return 10
     if model in ["wenxin", "xunfei"] or model.startswith(const.GEMINI):
         return num_tokens_by_character(messages)
 
