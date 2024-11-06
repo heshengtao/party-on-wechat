@@ -1,7 +1,8 @@
 {
   "channel_type": "wx",
-  "model": "",
-  "open_ai_api_key": "YOUR API KEY",
+  "model": "wx_api",
+  "open_ai_api_base":"http://127.0.0.1:8187/v1",
+  "open_ai_api_key": "sk-XXX",
   "claude_api_key": "YOUR API KEY",
   "text_to_image": "dall-e-2",
   "voice_to_text": "openai",
@@ -17,11 +18,9 @@
     "@bot"
   ],
   "group_name_white_list": [
-    "ChatGPT测试群",
-    "ChatGPT测试群2"
+    "party测试群"
   ],
   "image_create_prefix": [
-    "画"
   ],
   "speech_recognition": true,
   "group_speech_recognition": false,
